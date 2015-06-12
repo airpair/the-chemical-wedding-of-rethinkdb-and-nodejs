@@ -1,10 +1,10 @@
-## Before we dive in
+### Before we dive in
 
-This article assumes you have some Javascript experience, already installed and configured RethinkDB and io/node.js. Otherwise, prepare for awesomeness with [these](http://rethinkdb.com/docs/install/) [instructions](http://rethinkdb.com/docs/quickstart/) and install io.js with [n](https://github.com/tj/n) or [nvm](https://github.com/creationix/nvm).
+> This article assumes you have some Javascript experience, already installed and configured RethinkDB and io/node.js. Otherwise, prepare for awesomeness with [these](http://rethinkdb.com/docs/install/) [instructions](http://rethinkdb.com/docs/quickstart/) and install io.js with [n](https://github.com/tj/n) or [nvm](https://github.com/creationix/nvm).
 I won't explain every ReQL function used in the code but I hope you can understand what we're doing from the comments.
 Also, as matter of preference, I will be using an alternative Javascript driver called [rethinkdbdash](https://github.com/neumino/rethinkdbdash). The API is the same, but I encourage you to use it because it provides nice defaults like a connection pool and stream support.
 
-## Introduction
+## RethinkDB && Node.js && ReQL == Awesome
 RethinkDB has been on development for three years and it's getting more and more attention [because of its production-ready release](http://rethinkdb.com/blog/2.0-release/) and [new realtime features](http://rethinkdb.com/blog/rethinkdb-pubnub/).
 
 Node.js excels at non-blocking I/O, so you want to delegate the heavy processing to a background worker as fast as possible. Turns out ReQL(RethinkDB Query Language) is growing into a nice option for this kind of job, it will distribute the group-map-reduce work and probably simplify your system architecture, executing the whole job on the same layer.
